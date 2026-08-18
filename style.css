@@ -85,7 +85,9 @@ body {
 }
 .humidity,
 wind,
-pressure {
+pressure,
+sunrise,
+sunset {
   font-size: 28px;
   margin-top: -6px;
 }
