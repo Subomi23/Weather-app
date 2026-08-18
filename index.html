@@ -168,6 +168,9 @@
           var data = await response.json();
           const sunrise = new Date(data.sys.sunrise * 1000);
           const sunset = new Date(data.sys.sunset * 1000);
+          const utcTime =
+            new Date().getTime() + new Date().getTimezoneOffset() * 60000;
+          const cityTime = new Date(utcTime + data.timezone * 1000);
           document.querySelector(".city").innerHTML = data.name;
           document.querySelector(".temp").innerHTML =
             Math.round(data.main.temp) + "°C";
