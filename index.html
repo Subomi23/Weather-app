@@ -12,10 +12,7 @@
         <input type="text" placeholder="Enter City name" spellcheck="false" />
         <button><img src="images/search.png" /></button>
         <button id="getLocation">
-          <img
-            src="images/Computer Icons Location Montana PNG.jpg"
-            class="locationImage"
-          />
+          <img src="images/icons8-location-50.png" class="locationImage" />
         </button>
       </div>
       <div class="error">
@@ -95,6 +92,9 @@
       }
 
       locationButton.addEventListener("click", async () => {
+        navigator.geolocation.getCurrentPosition(gotLocation, failedToGet);
+      });
+      window.addEventListener("load", () => {
         navigator.geolocation.getCurrentPosition(gotLocation, failedToGet);
       });
       async function checkWeatherByCoords(lat, lon) {
@@ -192,7 +192,7 @@
               hour: "2-digit",
               minute: "2-digit",
             });
-            document.querySelector(".currentTime").innerHTML =
+          document.querySelector(".currentTime").innerHTML =
             "Current time is: " +
             cityTime.toLocaleTimeString([], {
               hour: "2-digit",
